@@ -6,7 +6,7 @@ function Viewer() {
     const [view, setView] = useState(null);
     const getForgeToken = () => {
         return {
-            access_token: process.env.Access_Token,
+            access_token: process.env.REACT_APP_ACCESS_TOKEN,
             token_type: 'Bearer',
             expires_in: 3599,
         };
