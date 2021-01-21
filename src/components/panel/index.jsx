@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import './index.css';
 import { Button, TextField } from '@material-ui/core';
 import PublishIcon from '@material-ui/icons/Publish';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import WorkitemAPI from '../../apis/workitem';
+import AuthAPI from '../../apis/auth';
 
 const useStyles = makeStyles(theme => ({
     mgBorder: {
@@ -16,6 +19,10 @@ function Panel() {
     const classes = useStyles();
     const updateModel = () => {
         console.log(width, height);
+        WorkitemAPI.sendWorkitem({ width, height });
+    };
+    const auth = () => {
+        AuthAPI.getAccessToken();
     };
     const handleWidthChange = e => {
         setWidth(e.target.value);
@@ -59,6 +66,15 @@ function Panel() {
                 onClick={updateModel}
             >
                 Send
+            </Button>
+            <Button
+                className={classes.mgBorder}
+                variant="contained"
+                color="primary"
+                endIcon={<LockOpenIcon />}
+                onClick={auth}
+            >
+                Auth
             </Button>
         </div>
     );
