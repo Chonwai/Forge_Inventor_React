@@ -18,8 +18,11 @@ function Panel() {
     const [height, setHeight] = useState(0);
     const classes = useStyles();
     const updateModel = () => {
-        console.log(width, height);
-        WorkitemAPI.sendWorkitem({ width, height });
+        let body = {
+            width: width,
+            height: height,
+        };
+        WorkitemAPI.sendWorkitem(body);
     };
     const auth = () => {
         AuthAPI.getAccessToken();
