@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
     mgBorder: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
     },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,

@@ -39,7 +39,7 @@ function Header() {
                         <MenuIcon />
                     </IconButton> */}
                     <Typography variant="h6" className={classes.title}>
-                        Forge Inventor
+                        Forge Inventor Demo
                     </Typography>
                     <Button color="inherit" endIcon={<LockOpenIcon />} onClick={auth}>
                         Auth
