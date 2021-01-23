@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AuthAPI from './apis/auth';
+
+function init() {
+    AuthAPI.getAccessToken();
+}
 
 ReactDOM.render(
     <React.StrictMode>

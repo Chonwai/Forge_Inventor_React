@@ -1,6 +1,6 @@
 import axios from '../utils/request';
 
-class DerivativesAPI {
+class DerivativeAPI {
     static async getTheStatusOfTheTranslationJob(urn) {
         try {
             const res = await axios.get(
@@ -16,7 +16,7 @@ class DerivativesAPI {
         try {
             let body = {
                 input: {
-                    urn: new Buffer(urn).toString('base64'),
+                    urn: `${urn}`,
                 },
                 output: {
                     destination: {
@@ -39,4 +39,4 @@ class DerivativesAPI {
     }
 }
 
-export default DerivativesAPI;
+export default DerivativeAPI;

@@ -6,6 +6,7 @@ import PublishIcon from '@material-ui/icons/Publish';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import WorkitemAPI from '../../apis/workitem';
 import AuthAPI from '../../apis/auth';
+import ModelService from '../../services/model';
 
 const useStyles = makeStyles(theme => ({
     mgBorder: {
@@ -17,12 +18,13 @@ function Panel() {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const classes = useStyles();
-    const updateModel = () => {
+    const updateModel = async () => {
         let body = {
             width: width,
             height: height,
         };
-        WorkitemAPI.sendWorkitem(body);
+        let urn = await ModelService.editModel(body);
+        console.log(urn);
     };
     const auth = () => {
         AuthAPI.getAccessToken();

@@ -31,7 +31,7 @@ function Viewer() {
             <div className="w-full h-full relative">
                 <ForgeViewer
                     version="7.0"
-                    urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZWRpc29uX2J1Y2tldC9ib3guaXB0"
+                    urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZWRpc29uX2J1Y2tldC8wMGI3NjNlYi1lMGNjLTQ5YmEtYmU0MC0zOGMwMzFkOTI5ZjAuaXB0"
                     view={view}
                     headless={false}
                     // onViewerError={this.handleViewerError.bind(this)}
