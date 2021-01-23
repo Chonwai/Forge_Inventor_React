@@ -4,14 +4,18 @@ import Panel from './components/panel';
 import React from 'react';
 
 function App() {
+    const [currentUrn, setCurrentUrn] = React.useState(
+        'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZWRpc29uX2J1Y2tldC8wMGI3NjNlYi1lMGNjLTQ5YmEtYmU0MC0zOGMwMzFkOTI5ZjAuaXB0'
+    );
     return (
         <div className="App">
             <div className="flex flex-row justify-center items-center p-2">
                 <div className="panel p-2 w-1/3">
-                    <Panel />
+                    <p className="break-words">Current URN: {currentUrn}</p>
+                    <Panel setCurrentUrn={setCurrentUrn} />
                 </div>
                 <div className="p-2 w-2/3 h-90vh">
-                    <Viewer />
+                    <Viewer currentUrn={currentUrn} />
                 </div>
             </div>
         </div>

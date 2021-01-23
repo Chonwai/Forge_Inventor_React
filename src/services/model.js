@@ -14,7 +14,7 @@ class ModelService {
                     resolve(status.status);
                     clearInterval(workitemStatusFlag);
                 }
-            }, 1000);
+            }, 500);
         });
     }
 
@@ -28,7 +28,7 @@ class ModelService {
                     resolve(status.status);
                     clearInterval(translateStatusFlag);
                 }
-            }, 1000);
+            }, 500);
         });
     }
 

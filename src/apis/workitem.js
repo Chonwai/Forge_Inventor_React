@@ -19,7 +19,7 @@ class WorkitemAPIs {
                     url: inputIpt,
                 },
                 InventorParams: {
-                    url: `data:application/json,{"height":"${data.height} mm", "width": "${data.width} mm"}`,
+                    url: `data:application/json,{"height":"${data.height} mm", "width": "${data.width} mm", "lenght": "${data.length} mm"}`,
                 },
                 OutputIpt: {
                     url: outputIpt,
