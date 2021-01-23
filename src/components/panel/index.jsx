@@ -3,17 +3,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import './index.css';
 import { Button, TextField } from '@material-ui/core';
 import PublishIcon from '@material-ui/icons/Publish';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
 import AuthAPI from '../../apis/auth';
 import ModelService from '../../services/model';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
     mgBorder: {
         margin: theme.spacing(1),
     },
+    backdrop: {
+        zIndex: theme.zIndex.drawer + 1,
+        color: '#fff',
+    },
 }));
 
 function Panel({ setCurrentUrn }) {
+    const [open, setOpen] = React.useState(false);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [length, setLength] = useState(0);
@@ -25,9 +31,11 @@ function Panel({ setCurrentUrn }) {
             length: length,
         };
         auth();
+        handleToggle();
         let urn = await ModelService.editModel(body);
         setCurrentUrn(urn);
         console.log(urn);
+        handleClose();
     };
     const auth = () => {
         AuthAPI.getAccessToken();
@@ -41,8 +49,14 @@ function Panel({ setCurrentUrn }) {
     const handleLengthChange = e => {
         setLength(e.target.value);
     };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleToggle = () => {
+        setOpen(!open);
+    };
     return (
-        <div className="panel-component w-full flex flex-col">
+        <div className="panel-component w-full h-full flex flex-col">
             <TextField
                 className={classes.mgBorder}
                 id="outlined-number"
@@ -91,15 +105,12 @@ function Panel({ setCurrentUrn }) {
             >
                 Send
             </Button>
-            <Button
-                className={classes.mgBorder}
-                variant="contained"
-                color="primary"
-                endIcon={<LockOpenIcon />}
-                onClick={auth}
-            >
-                Auth
-            </Button>
+            <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+                <div className="w-screen flex flex-col justify-center items-center">
+                    <CircularProgress />
+                    <p>Updating...</p>
+                </div>
+            </Backdrop>
         </div>
     );
 }

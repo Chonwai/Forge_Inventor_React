@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthAPI from './apis/auth';
+import Header from './components/header';
 
 function init() {
     AuthAPI.getAccessToken();
@@ -11,6 +12,7 @@ function init() {
 
 ReactDOM.render(
     <React.StrictMode>
+        <Header />
         <App />
     </React.StrictMode>,
     document.getElementById('root')

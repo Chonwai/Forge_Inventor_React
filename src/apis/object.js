@@ -4,7 +4,6 @@ class ObjectAPIs {
     static async getTemporaryDownloadURL() {
         try {
             const res = await axios.post('oss/v2/buckets/edison_bucket/objects/box.ipt/signed', {});
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);
@@ -16,7 +15,6 @@ class ObjectAPIs {
                 `https://developer.api.autodesk.com/oss/v2/buckets/edison_bucket/objects/${id}.ipt/signed?access=readwrite`,
                 {}
             );
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);

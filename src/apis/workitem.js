@@ -4,7 +4,6 @@ class WorkitemAPIs {
     static async getWorkitemStatus(data) {
         try {
             const res = await axios.get(`da/us-east/v3/workitems/${data}`);
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);
@@ -29,7 +28,6 @@ class WorkitemAPIs {
         };
         try {
             const res = await axios.post('da/us-east/v3/workitems', body);
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);

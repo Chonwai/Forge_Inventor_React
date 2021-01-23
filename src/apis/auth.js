@@ -17,7 +17,6 @@ class AuthAPIs {
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
                 },
             });
-            console.log(res);
             LocalStorgae.set('access_token', res.data.access_token);
         } catch (error) {
             console.log(error);

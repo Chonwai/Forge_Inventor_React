@@ -6,7 +6,6 @@ class DerivativeAPI {
             const res = await axios.get(
                 `https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`
             );
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);
@@ -31,7 +30,6 @@ class DerivativeAPI {
                 },
             };
             const res = await axios.post('modelderivative/v2/designdata/job', body);
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.log(error);
