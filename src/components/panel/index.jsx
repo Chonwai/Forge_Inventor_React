@@ -23,12 +23,14 @@ function Panel({ setCurrentUrn }) {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [length, setLength] = useState(0);
+    const [thickness, setThickness] = useState(0);
     const classes = useStyles();
     const updateModel = async () => {
         let body = {
             width: width,
             height: height,
             length: length,
+            thickness: thickness,
         };
         auth();
         handleToggle();
@@ -48,6 +50,9 @@ function Panel({ setCurrentUrn }) {
     };
     const handleLengthChange = e => {
         setLength(e.target.value);
+    };
+    const handleThicknessChange = e => {
+        setThickness(e.target.value);
     };
     const handleClose = () => {
         setOpen(false);
@@ -95,6 +100,19 @@ function Panel({ setCurrentUrn }) {
                 variant="outlined"
                 value={length}
                 onChange={handleLengthChange}
+            />
+            <TextField
+                className={classes.mgBorder}
+                id="outlined-number"
+                label="Thickness"
+                type="number"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                InputProps={{ inputProps: { min: 0 } }}
+                variant="outlined"
+                value={thickness}
+                onChange={handleThicknessChange}
             />
             <Button
                 className={classes.mgBorder}
