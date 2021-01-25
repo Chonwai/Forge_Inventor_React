@@ -5,9 +5,7 @@ import React, { useEffect } from 'react';
 import AuthAPI from './apis/auth';
 
 function App() {
-    const [currentUrn, setCurrentUrn] = React.useState(
-        'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZWRpc29uX2J1Y2tldC9uZXdfYm94LmlwdA'
-    );
+    const [currentUrn, setCurrentUrn] = React.useState(process.env.REACT_APP_URN);
     useEffect(() => {
         // Update the document title using the browser API
         console.log('Create the App!');
